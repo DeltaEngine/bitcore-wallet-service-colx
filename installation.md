@@ -1,4 +1,4 @@
-The following document is a step-by-step guide to run BWS.
+The following document is a step-by-step guide to run bitcore-wallet-service-colx (BWS).
 
 ### Prerequisites
 Ensure MongoDB (2.6+) is installed and running. This document assumes that mongod is running at the default port 27017.

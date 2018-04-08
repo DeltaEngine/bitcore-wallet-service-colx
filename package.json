@@ -1,26 +1,27 @@
 {
-  "name": "bitcore-wallet-service-dash",
-  "description": "A service for Mutisig HD Dash Wallets",
+  "name": "bitcore-wallet-service-colx",
+  "description": "A service for Mutisig HD COLX Wallets",
   "author": "BitPay Inc",
-  "version": "1.9.1",
+  "version": "2.11.3",
+  "license": "MIT",
   "keywords": [
-    "dash",
-    "copay-dash",
+    "colx",
+    "copay",
     "multisig",
     "wallet",
-    "bitcore-dash",
+    "bitcore-colx",
     "BWS"
   ],
   "repository": {
-    "url": "git@github.com:dashpay/bitcore-wallet-service-dash.git",
+    "url": "git@github.com:deltaengine/bitcore-wallet-service-colx.git",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/dashpay/bitcore-wallet-service-dash/issues"
+    "url": "https://github.com/deltaengine/bitcore-wallet-service-colx/issues"
   },
   "dependencies": {
     "async": "^0.9.2",
-    "bitcore-lib-dash": "^0.13.19",
+    "bitcore-lib-colx": "^0.13.20",
     "body-parser": "^1.11.0",
     "coveralls": "^2.11.2",
     "email-validator": "^1.0.1",
@@ -66,14 +67,18 @@
     "coveralls": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "bitcoreNode": "./bitcorenode",
-  "contributors": [{
-    "name": "Braydon Fuller",
-    "email": "braydon@bitpay.com"
-  }, {
-    "name": "Ivan Socolsky",
-    "email": "ivan@bitpay.com"
-  }, {
-    "name": "Matias Alejo Garcia",
-    "email": "ematiu@gmail.com"
-  }]
+  "contributors": [
+    {
+      "name": "Braydon Fuller",
+      "email": "braydon@bitpay.com"
+    },
+    {
+      "name": "Ivan Socolsky",
+      "email": "ivan@bitpay.com"
+    },
+    {
+      "name": "Matias Alejo Garcia",
+      "email": "ematiu@gmail.com"
+    }
+  ]
 }
