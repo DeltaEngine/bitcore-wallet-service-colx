@@ -44,7 +44,7 @@ var Service = function(options) {
 
 util.inherits(Service, EventEmitter);
 
-Service.dependencies = ['insight-api-dash'];
+Service.dependencies = ['insight-api-colx'];
 
 /**
  * This method will read `key` and `cert` files from disk based on `httpsOptions` and
@@ -82,7 +82,7 @@ Service.prototype._getConfiguration = function() {
   var providerOptions = {
     provider: 'insight',
     url: (self.node.https ? 'https://' : 'http://') + 'localhost:' + self.node.port,
-    apiPrefix: '/insight-api-dash'
+    apiPrefix: '/insight-api-colx'
   };
 
   // A bitcore-node is either livenet or testnet, so we'll pass
@@ -118,9 +118,7 @@ Service.prototype._startWalletService = function(config, next) {
   } else {
     self.server = http.Server(expressApp.app);
   }
-
   async.parallel([
-
     function(done) {
       expressApp.start(config, done);
     },
@@ -139,7 +137,6 @@ Service.prototype._startWalletService = function(config, next) {
  * Called by the node to start the service
  */
 Service.prototype.start = function(done) {
-
   var self = this;
   var config;
   try {
@@ -161,7 +158,6 @@ Service.prototype.start = function(done) {
   });
 
   async.series([
-
     function(next) {
       // Blockchain Monitor
       var blockChainMonitor = new BlockchainMonitor();
@@ -180,7 +176,6 @@ Service.prototype.start = function(done) {
       self._startWalletService(config, next);
     }
   ], done);
-
 };
 
 /**
