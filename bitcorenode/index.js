@@ -13,7 +13,6 @@ var Locker = require('locker-server');
 var BlockchainMonitor = require('../lib/blockchainmonitor');
 var EmailService = require('../lib/emailservice');
 var ExpressApp = require('../lib/expressapp');
-var WsApp = require('../lib/wsapp');
 var child_process = require('child_process');
 var spawn = child_process.spawn;
 var EventEmitter = require('events').EventEmitter;
@@ -82,7 +81,7 @@ Service.prototype._getConfiguration = function() {
   var providerOptions = {
     provider: 'insight',
     url: (self.node.https ? 'https://' : 'http://') + 'localhost:' + self.node.port,
-    apiPrefix: '/insight-api-colx'
+    apiPrefix: '/insight-api'
   };
 
   // A bitcore-node is either livenet or testnet, so we'll pass
@@ -110,7 +109,6 @@ Service.prototype._getConfiguration = function() {
 Service.prototype._startWalletService = function(config, next) {
   var self = this;
   var expressApp = new ExpressApp();
-  var wsApp = new WsApp();
 
   if (self.https) {
     var serverOpts = self._readHttpsOptions();
@@ -118,14 +116,8 @@ Service.prototype._startWalletService = function(config, next) {
   } else {
     self.server = http.Server(expressApp.app);
   }
-  async.parallel([
-    function(done) {
-      expressApp.start(config, done);
-    },
-    function(done) {
-      wsApp.start(self.server, config, done);
-    },
-  ], function(err) {
+
+  expressApp.start(config, function(err){
     if (err) {
       return next(err);
     }
@@ -137,6 +129,7 @@ Service.prototype._startWalletService = function(config, next) {
  * Called by the node to start the service
  */
 Service.prototype.start = function(done) {
+
   var self = this;
   var config;
   try {
@@ -158,6 +151,7 @@ Service.prototype.start = function(done) {
   });
 
   async.series([
+
     function(next) {
       // Blockchain Monitor
       var blockChainMonitor = new BlockchainMonitor();
@@ -176,6 +170,7 @@ Service.prototype.start = function(done) {
       self._startWalletService(config, next);
     }
   ], done);
+
 };
 
 /**

@@ -131,4 +131,13 @@ describe('Utils', function() {
       });
     });
   });
+
+  describe('#getAddressCoin', function() {
+    it('should identify btc as coin for D5ztNcMUFVo4JdLF3dPwXSm7E15VJhpjBN', function() {
+      Utils.getAddressCoin('D5ztNcMUFVo4JdLF3dPwXSm7E15VJhpjBN').should.equal('btc');
+    });
+    it('should return null for 1L', function() {
+      should.not.exist(Utils.getAddressCoin('1L'));
+    });
+  });  
 });

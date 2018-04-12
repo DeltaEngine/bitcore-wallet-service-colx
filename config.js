@@ -2,9 +2,11 @@ var config = {
   basePath: '/bws/api',
   disableLogs: false,
   port: 3232,
+
   // Uncomment to make BWS a forking server
   // cluster: true,
-  // Uncomment to use the nr of availalbe CPUs
+
+  // Uncomment to set the number or process (will use the # of available CPUs by default)
   // clusterInstances: 4,
 
   // https: true,
@@ -36,13 +38,23 @@ var config = {
     },
   },
   blockchainExplorerOpts: {
-    livenet: {
-      provider: 'insight',
-      url: 'http://localhost',//TODO: http://insight.colossusxt.org
+    btc: {
+      livenet: {
+        provider: 'insight',
+        url: 'http://localhost',//TODO: http://insight.colossusxt.org
+        apiPrefix:'/insight-api'
+      },
+      testnet: {
+        provider: 'insight',
+        url: 'http://localhost',//TODO: http://insight.colossusxt.org
+        apiPrefix:'/insight-api'
+      },
     },
-    testnet: {
-      provider: 'insight',
-      url: 'http://localhost',//TODO: http://insight.colossusxt.org
+    bch: {
+      livenet: {
+        provider: 'insight',
+        url: 'https://cashexplorer.bitcoin.com',
+      },
     },
   },
   pushNotificationsOpts: {
@@ -50,7 +62,8 @@ var config = {
     defaultLanguage: 'en',
     defaultUnit: 'btc',
     subjectPrefix: '',
-    pushServerUrl: 'http://localhost:8000',
+    pushServerUrl: 'https://fcm.googleapis.com/fcm',
+    authorizationKey: '',
   },
   fiatRateServiceOpts: {
     defaultProvider: 'BitPay',
@@ -78,6 +91,5 @@ var config = {
   //  api_user: xxx,
   //  api_key: xxx,
   // });
-
 };
 module.exports = config;
