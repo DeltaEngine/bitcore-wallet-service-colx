@@ -42,12 +42,12 @@ var config = {
       livenet: {
         provider: 'insight',
         url: 'http://localhost',//TODO: http://insight.colossusxt.org
-        apiPrefix:'/insight-api'
+        apiPrefix:'/api'
       },
       testnet: {
         provider: 'insight',
         url: 'http://localhost',//TODO: http://insight.colossusxt.org
-        apiPrefix:'/insight-api'
+        apiPrefix:'/api'
       },
     },
     bch: {
