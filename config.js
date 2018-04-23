@@ -42,12 +42,12 @@ var config = {
       livenet: {
         provider: 'insight',
         url: 'http://84.200.210.11:3001',
-        apiPrefix:'/insight-api'
+        apiPrefix:'/api'
       },
       testnet: {
         provider: 'insight',
         url: 'http://84.200.210.11:3001',
-        apiPrefix:'/insight-api'
+        apiPrefix:'/api'
       },
     },
     bch: {
