@@ -11,11 +11,6 @@ log.debug = log.verbose;
 log.level = 'info';
 
 var Bitcore = require('bitcore-lib-colx');
-var Bitcore_ = {
-  btc: Bitcore,
-  bch: require('bitcore-lib-colx')
-};
-
 var Common = require('../../lib/common');
 var Utils = Common.Utils;
 var Constants = Common.Constants;
@@ -3800,7 +3795,7 @@ describe('Wallet service', function() {
         });
         it('should fail gracefully when bitcore throws exception on raw tx creation', function(done) {
           helpers.stubUtxos(server, wallet, 1,  function() {
-            var bitcoreStub = sinon.stub(Bitcore_[coin], 'Transaction');
+            var bitcoreStub = sinon.stub(Bitcore, 'Transaction');
             bitcoreStub.throws({
               name: 'dummy',
               message: 'dummy exception'

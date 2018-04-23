@@ -38,15 +38,15 @@ var config = {
     },
   },
   blockchainExplorerOpts: {
-    btc: {
+    colx: {
       livenet: {
         provider: 'insight',
-        url: 'http://localhost',//TODO: http://insight.colossusxt.org
+        url: 'http://84.200.210.11:3001',
         apiPrefix:'/insight-api'
       },
       testnet: {
         provider: 'insight',
-        url: 'http://localhost',//TODO: http://insight.colossusxt.org
+        url: 'http://84.200.210.11:3001',
         apiPrefix:'/insight-api'
       },
     },
@@ -60,7 +60,7 @@ var config = {
   pushNotificationsOpts: {
     templatePath: './lib/templates',
     defaultLanguage: 'en',
-    defaultUnit: 'btc',
+    defaultUnit: 'colx',
     subjectPrefix: '',
     pushServerUrl: 'https://fcm.googleapis.com/fcm',
     authorizationKey: '',
@@ -78,7 +78,7 @@ var config = {
   //  from: 'wallet-service@bitcore.io',
   //  templatePath: './lib/templates',
   //  defaultLanguage: 'en',
-  //  defaultUnit: 'btc',
+  //  defaultUnit: 'colx',
   //  publicTxUrlTemplate: {
   //    livenet: 'https://insight.bitpay.com/tx/{{txid}}',
   //    testnet: 'https://test-insight.bitpay.com/tx/{{txid}}',
