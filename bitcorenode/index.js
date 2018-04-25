@@ -88,7 +88,6 @@ Service.prototype._getConfiguration = function() {
   // the configuration options to communicate via the local running
   // instance of the insight-api service.
   if (self.node.network.name === Networks.livenet.name) {
-  if (self.node.network === Networks.livenet) {
     baseConfig.blockchainExplorerOpts = {
       livenet: providerOptions
     };
