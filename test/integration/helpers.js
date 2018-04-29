@@ -13,11 +13,6 @@ var tingodb = require('tingodb')({
 });
 
 var Bitcore = require('bitcore-lib-colx');
-var Bitcore_ = {
-  btc: Bitcore,
-  bch: require('bitcore-lib-colx')
-};
-
 var Common = require('../../lib/common');
 var Utils = Common.Utils;
 var Constants = Common.Constants;
@@ -277,7 +272,7 @@ helpers.stubUtxos = function(server, wallet, amounts, opts, cb) {
 
   if (!helpers._utxos) helpers._utxos = {};
 
-  var S = Bitcore_[wallet.coin].Script;
+  var S = Bitcore.Script;
 
   async.waterfall([
 
@@ -392,12 +387,7 @@ helpers.clientSign = function(txp, derivedXPrivKey) {
   //Derive proper key to sign, for each input
   var privs = [];
   var derived = {};
-
-  if (txp.coin == 'bch') {
-      var xpriv = new Bitcore_.bch.HDPrivateKey(derivedXPrivKey, txp.network);
-  } else {
-      var xpriv = new Bitcore.HDPrivateKey(derivedXPrivKey, txp.network);
-  }
+  var xpriv = new Bitcore.HDPrivateKey(derivedXPrivKey, txp.network);
 
   _.each(txp.inputs, function(i) {
     if (!derived[i.path]) {
