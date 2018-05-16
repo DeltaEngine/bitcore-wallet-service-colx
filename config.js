@@ -41,12 +41,12 @@ var config = {
     colx: {
       livenet: {
         provider: 'insight',
-        url: 'http://84.200.210.11:3001',
+        url: 'http://colxexplorer.deltaengine.net:51574',
         apiPrefix:'/api'
       },
       testnet: {
         provider: 'insight',
-        url: 'http://84.200.210.11:3001',
+        url: 'http://colxexplorer.deltaengine.net:51574',
         apiPrefix:'/api'
       },
     },
