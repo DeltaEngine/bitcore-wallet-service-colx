@@ -12,7 +12,7 @@ var tingodb = require('tingodb')({
   memStore: true
 });
 
-var Bitcore = require('bitcore-lib-colx');
+var Bitcore = require('colossuscore-lib');
 var Common = require('../../lib/common');
 var Utils = Common.Utils;
 var Constants = Common.Constants;

@@ -5,7 +5,7 @@ var chai = require('chai');
 var sinon = require('sinon');
 var should = chai.should();
 var TxProposal = require('../../lib/model/txproposal_legacy');
-var Bitcore = require('bitcore-lib-colx');
+var Bitcore = require('colossuscore-lib');
 
 describe('TXProposal legacy', function() {
 
